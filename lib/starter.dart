@@ -32,6 +32,12 @@ class _StarterState extends State<Starter> {
   }
 
   @override
+  void dispose() {
+    messageService.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BonfireTiledWidget(
       gameController: gameController,

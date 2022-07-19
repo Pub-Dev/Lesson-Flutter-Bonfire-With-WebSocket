@@ -39,6 +39,7 @@ class Message {
 class ActionMessage {
   static const String myInvocation = "MY_INVOCATION";
   static const String allyInvocation = "ALLY_INVOCATION";
+  static const String disconnect = "DISCONNECT";
 }
 
 class DirectionMessage {

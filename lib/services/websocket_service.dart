@@ -13,6 +13,10 @@ class WebsocketService {
     );
   }
 
+  Future disconnect() async {
+    await websocket.sink.close();
+  }
+
   Future _retryConnection({
     required void Function(Map<String, dynamic>) onReceive,
   }) async {

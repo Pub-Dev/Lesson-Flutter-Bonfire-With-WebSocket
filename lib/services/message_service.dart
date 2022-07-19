@@ -31,4 +31,8 @@ class MessageService {
       }
     });
   }
+
+  void dispose() async {
+    await websocket.disconnect();
+  }
 }
