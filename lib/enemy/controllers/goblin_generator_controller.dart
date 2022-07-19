@@ -2,8 +2,8 @@ import 'dart:math';
 
 import 'package:bonfire/bonfire.dart';
 
-import '../enemy/goblin_enemy.dart';
-import '../main.dart';
+import '../../enemy/goblin_enemy.dart';
+import '../../main.dart';
 
 class GoblinGeneratorController extends StateController<GoblinEnemy> {
   final _positionsToRespawn = [

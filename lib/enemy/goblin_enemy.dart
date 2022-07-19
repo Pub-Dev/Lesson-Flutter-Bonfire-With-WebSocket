@@ -1,9 +1,9 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:lesson_flutter_bonfire/enemy/goblin_sprite.dart';
-import 'package:lesson_flutter_bonfire/main.dart';
 
 import '../abilities/slash_ability_sprite.dart';
-import '../controllers/goblin_generator_controller.dart';
+import '../main.dart';
+import 'controllers/goblin_generator_controller.dart';
+import 'goblin_sprite.dart';
 
 class GoblinEnemy extends SimpleEnemy
     with ObjectCollision, UseStateController<GoblinGeneratorController> {
