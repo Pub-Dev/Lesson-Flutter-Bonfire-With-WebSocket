@@ -1,14 +1,17 @@
 import 'dart:ui';
 
 import 'package:bonfire/bonfire.dart';
-import 'package:lesson_flutter_bonfire/player/knight_sprite.dart';
+import 'package:lesson_flutter_bonfire_with_websocket/player/knight_sprite.dart';
 
 import '../abilities/slash_ability_sprite.dart';
 import '../main.dart';
 
 class KnightPlayer extends SimplePlayer with ObjectCollision, JoystickListener {
-  KnightPlayer()
-      : super(
+  final String id;
+
+  KnightPlayer({
+    required this.id,
+  }) : super(
           position: Vector2(
             tileSize * 5,
             tileSize * 5,
