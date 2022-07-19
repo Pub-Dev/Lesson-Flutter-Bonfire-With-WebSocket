@@ -13,9 +13,7 @@ void main() {
 
   final websocket = WebsocketService();
   BonfireInjector.instance.put((i) => websocket);
-  BonfireInjector.instance.put((i) => MessageService(
-        websocket: BonfireInjector.instance.get(),
-      ));
+  BonfireInjector.instance.put((i) => MessageService(websocket: i.get()));
 
   runApp(
     const MaterialApp(
