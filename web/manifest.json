@@ -1,6 +1,6 @@
 {
-    "name": "lesson_flutter_bonfire",
-    "short_name": "lesson_flutter_bonfire",
+    "name": "lesson_flutter_bonfire_with_websocket",
+    "short_name": "lesson_flutter_bonfire_with_websocket",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

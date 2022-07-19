@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.lesson_flutter_bonfire">
+    package="com.example.lesson_flutter_bonfire_with_websocket">
    <application
-        android:label="lesson_flutter_bonfire"
+        android:label="lesson_flutter_bonfire_with_websocket"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

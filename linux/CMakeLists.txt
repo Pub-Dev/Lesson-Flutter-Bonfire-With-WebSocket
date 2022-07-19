@@ -4,10 +4,10 @@ project(runner LANGUAGES CXX)
 
 # The name of the executable created for the application. Change this to change
 # the on-disk name of your application.
-set(BINARY_NAME "lesson_flutter_bonfire")
+set(BINARY_NAME "lesson_flutter_bonfire_with_websocket")
 # The unique GTK application identifier for this application. See:
 # https://wiki.gnome.org/HowDoI/ChooseApplicationID
-set(APPLICATION_ID "com.example.lesson_flutter_bonfire")
+set(APPLICATION_ID "com.example.lesson_flutter_bonfire_with_websocket")
 
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent
 # versions of CMake.

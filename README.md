@@ -1,4 +1,4 @@
-# lesson_flutter_bonfire
+# lesson_flutter_bonfire_with_websocket
 
 A new Flutter project.
 

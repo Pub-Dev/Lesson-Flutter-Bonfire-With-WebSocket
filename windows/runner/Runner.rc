@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "lesson_flutter_bonfire" "\0"
+            VALUE "FileDescription", "lesson_flutter_bonfire_with_websocket" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "lesson_flutter_bonfire" "\0"
+            VALUE "InternalName", "lesson_flutter_bonfire_with_websocket" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2022 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "lesson_flutter_bonfire.exe" "\0"
-            VALUE "ProductName", "lesson_flutter_bonfire" "\0"
+            VALUE "OriginalFilename", "lesson_flutter_bonfire_with_websocket.exe" "\0"
+            VALUE "ProductName", "lesson_flutter_bonfire_with_websocket" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
