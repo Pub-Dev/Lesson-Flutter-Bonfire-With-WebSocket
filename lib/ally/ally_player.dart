@@ -1,9 +1,11 @@
 import 'package:bonfire/bonfire.dart';
+import 'package:lesson_flutter_bonfire_with_websocket/ally/controllers/ally_player_controller.dart';
 
 import '../main.dart';
 import '../player/knight_sprite.dart';
 
-class AllyPlayer extends SimpleAlly with ObjectCollision {
+class AllyPlayer extends SimpleAlly
+    with ObjectCollision, UseStateController<AllyPlayerController> {
   final String id;
 
   AllyPlayer({

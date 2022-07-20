@@ -1,12 +1,17 @@
 import 'dart:ui';
 
 import 'package:bonfire/bonfire.dart';
+import 'package:lesson_flutter_bonfire_with_websocket/player/controllers/player_controller.dart';
 import 'package:lesson_flutter_bonfire_with_websocket/player/knight_sprite.dart';
 
 import '../abilities/slash_ability_sprite.dart';
 import '../main.dart';
 
-class KnightPlayer extends SimplePlayer with ObjectCollision, JoystickListener {
+class KnightPlayer extends SimplePlayer
+    with
+        ObjectCollision,
+        JoystickListener,
+        UseStateController<PlayerController> {
   final String id;
 
   KnightPlayer({
@@ -82,5 +87,21 @@ class KnightPlayer extends SimplePlayer with ObjectCollision, JoystickListener {
       ),
     );
     super.die();
+  }
+
+  @override
+  void onMove(double speed, Direction direction, double angle) {
+    if (hasController) {
+      controller.onMove(speed, direction);
+    }
+    super.onMove(speed, direction, angle);
+  }
+
+  @override
+  void idle() {
+    if (hasController) {
+      controller.idleAction(lastDirection);
+    }
+    super.idle();
   }
 }

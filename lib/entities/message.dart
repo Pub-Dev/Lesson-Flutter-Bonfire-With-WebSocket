@@ -39,19 +39,44 @@ class Message {
 class ActionMessage {
   static const String myInvocation = "MY_INVOCATION";
   static const String allyInvocation = "ALLY_INVOCATION";
-  static const String disconnect = "DISCONNECT";
+  static const String move = "MOVE";
+  static const String idle = "IDLE";
 }
 
 class DirectionMessage {
   static const String right = "RIGHT";
   static const String left = "LEFT";
+  static const String up = "UP";
+  static const String upRight = '$up$right';
+  static const String upLeft = '$up$left';
+  static const String down = "DOWN";
+  static const String downRight = '$down$right';
+  static const String downLeft = '$down$left';
 
   static String direction(Direction direction) {
+    if (direction == Direction.up) {
+      return up;
+    }
+    if (direction == Direction.down) {
+      return down;
+    }
     if (direction == Direction.right) {
       return right;
     }
+    if (direction == Direction.downRight) {
+      return downRight;
+    }
+    if (direction == Direction.upRight) {
+      return upRight;
+    }
     if (direction == Direction.left) {
       return left;
+    }
+    if (direction == Direction.downLeft) {
+      return downLeft;
+    }
+    if (direction == Direction.upLeft) {
+      return upLeft;
     }
     return right;
   }
@@ -59,12 +84,30 @@ class DirectionMessage {
 
 extension DirectionToDirectionMessage on String {
   toDirection() {
+    if (this == DirectionMessage.up) {
+      return Direction.up;
+    }
+    if (this == DirectionMessage.down) {
+      return Direction.down;
+    }
     if (this == DirectionMessage.right) {
       return Direction.right;
+    }
+    if (this == DirectionMessage.downRight) {
+      return Direction.downRight;
+    }
+    if (this == DirectionMessage.upRight) {
+      return Direction.upRight;
     }
     if (this == DirectionMessage.left) {
       return Direction.left;
     }
-    return Direction.right;
+    if (this == DirectionMessage.downLeft) {
+      return Direction.downLeft;
+    }
+    if (this == DirectionMessage.upLeft) {
+      return Direction.upLeft;
+    }
+    return DirectionMessage.right;
   }
 }
