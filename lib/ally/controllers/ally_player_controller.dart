@@ -60,6 +60,7 @@ class AllyPlayerController extends StateController<AllyPlayer> {
     messageService.add(ActionMessage.move, moveServer);
     messageService.add(ActionMessage.idle, idleServer);
     messageService.add(ActionMessage.attack, attackServer);
+    messageService.add(ActionMessage.disconnect, disconnectedAllyPlayer);
     super.onReady(component);
   }
 
@@ -82,6 +83,12 @@ class AllyPlayerController extends StateController<AllyPlayer> {
       isIdle = false;
       component!.position = message.position!;
       direction = message.direction.toDirection();
+    }
+  }
+
+  void disconnectedAllyPlayer(Message message) {
+    if (message.idPlayer == component!.id) {
+      component!.die();
     }
   }
 }

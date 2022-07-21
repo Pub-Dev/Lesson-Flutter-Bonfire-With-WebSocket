@@ -46,6 +46,7 @@ class ActionMessage {
   static const String move = "MOVE";
   static const String idle = "IDLE";
   static const String attack = "ATTACK";
+  static const String disconnect = "DISCONNECT";
 }
 
 class DirectionMessage {

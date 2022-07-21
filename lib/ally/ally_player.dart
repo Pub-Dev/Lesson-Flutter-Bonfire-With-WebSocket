@@ -53,4 +53,21 @@ class AllyPlayer extends SimpleAlly
       );
     }
   }
+
+  @override
+  void die() async {
+    removeFromParent();
+    final sprite = await KnightSprite.die;
+    gameRef.add(
+      GameDecoration.withSprite(
+        sprite: sprite.getSprite(),
+        position: Vector2(
+          position.x,
+          position.y,
+        ),
+        size: Vector2.all(30),
+      ),
+    );
+    super.die();
+  }
 }
