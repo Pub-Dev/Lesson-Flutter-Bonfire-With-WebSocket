@@ -13,6 +13,14 @@ class PlayerController extends StateController<KnightPlayer> {
   @override
   void update(double dt, KnightPlayer component) {}
 
+  onAttack() {
+    messageService.send(Message(
+      idPlayer: component!.id,
+      action: ActionMessage.attack,
+      direction: DirectionMessage.direction(component!.lastDirection),
+    ));
+  }
+
   onMove(double speed, Direction direction) {
     if (speed > 0) {
       messageService.send(

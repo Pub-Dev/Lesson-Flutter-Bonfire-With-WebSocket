@@ -82,7 +82,7 @@ class _StarterState extends State<Starter> {
   void _invockAllyOnline(Message message) {
     final ally = AllyPlayer(
       id: message.idPlayer,
-      position: message.position,
+      position: message.position!,
       direction: message.direction.toDirection(),
     );
     gameController.addGameComponent(ally);
@@ -103,7 +103,7 @@ class _StarterState extends State<Starter> {
   void _sendMyInvokation(Message message) {
     final ally = AllyPlayer(
       id: message.idPlayer,
-      position: message.position,
+      position: message.position!,
       direction: message.direction.toDirection(),
     );
     gameController.addGameComponent(ally);

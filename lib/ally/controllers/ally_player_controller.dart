@@ -59,13 +59,19 @@ class AllyPlayerController extends StateController<AllyPlayer> {
   void onReady(AllyPlayer component) {
     messageService.add(ActionMessage.move, moveServer);
     messageService.add(ActionMessage.idle, idleServer);
+    messageService.add(ActionMessage.attack, attackServer);
     super.onReady(component);
+  }
+
+  void attackServer(Message message) {
+    if (message.idPlayer == component!.id) {
+      component!.executeAttack(message.direction.toDirection());
+    }
   }
 
   void idleServer(Message message) {
     if (message.idPlayer == component!.id) {
       isIdle = true;
-      //component!.position = message.position;
       component!.lastDirection = message.direction.toDirection();
       direction = message.direction.toDirection();
     }
@@ -74,8 +80,7 @@ class AllyPlayerController extends StateController<AllyPlayer> {
   void moveServer(Message message) {
     if (message.idPlayer == component!.id) {
       isIdle = false;
-      component!.position = message.position;
-      //component!.lastDirection = message.direction.toDirection();
+      component!.position = message.position!;
       direction = message.direction.toDirection();
     }
   }

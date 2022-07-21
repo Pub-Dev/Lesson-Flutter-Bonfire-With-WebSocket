@@ -59,6 +59,7 @@ class KnightPlayer extends SimplePlayer
   void joystickAction(JoystickActionEvent event) {
     if (hasGameRef && !gameRef.camera.isMoving) {
       if (event.event == ActionEvent.DOWN && event.id == 1) {
+        controller.onAttack();
         simpleAttackMelee(
           damage: 10,
           size: Vector2(40, 40),

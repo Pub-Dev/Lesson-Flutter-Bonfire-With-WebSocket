@@ -5,23 +5,25 @@ class Message {
     required this.idPlayer,
     required this.action,
     required this.direction,
-    required this.position,
+    this.position,
   });
 
   final String idPlayer;
   final String action;
   final String direction;
-  final Vector2 position;
+  final Vector2? position;
 
   Map<String, dynamic> toJson() {
     return {
       'id': idPlayer,
       'action': action,
       'direction': direction,
-      'position': {
-        'x': position.x,
-        'y': position.y,
-      }
+      'position': position != null
+          ? {
+              'x': position!.x,
+              'y': position!.y,
+            }
+          : null,
     };
   }
 
@@ -29,10 +31,12 @@ class Message {
         idPlayer: json['id'],
         action: json['action'],
         direction: json['direction'],
-        position: Vector2(
-          double.parse(json['position']['x'].toString()),
-          double.parse(json['position']['y'].toString()),
-        ),
+        position: json['position'] != null
+            ? Vector2(
+                double.parse(json['position']['x'].toString()),
+                double.parse(json['position']['y'].toString()),
+              )
+            : null,
       );
 }
 
@@ -41,6 +45,7 @@ class ActionMessage {
   static const String allyInvocation = "ALLY_INVOCATION";
   static const String move = "MOVE";
   static const String idle = "IDLE";
+  static const String attack = "ATTACK";
 }
 
 class DirectionMessage {
