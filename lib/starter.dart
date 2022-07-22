@@ -1,10 +1,10 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
-import 'package:lesson_flutter_bonfire_with_websocket/ally/ally_player.dart';
 import 'package:lesson_flutter_bonfire_with_websocket/entities/message.dart';
 import 'package:lesson_flutter_bonfire_with_websocket/player/knight_player.dart';
 import 'package:uuid/uuid.dart';
 
+import 'enemy/enemy_player.dart';
 import 'main.dart';
 import 'services/message_service.dart';
 
@@ -59,10 +59,7 @@ class _StarterState extends State<Starter> {
           ),
         ],
       ),
-      //showCollisionArea: true,
-      components: const [
-        //GoblinEnemy(position: Vector2(tileSize * 10, tileSize * 10)),
-      ],
+      components: const [],
       onReady: (gameRef) {
         messageService.send(
           Message(
@@ -80,7 +77,7 @@ class _StarterState extends State<Starter> {
   }
 
   void _invockAllyOnline(Message message) {
-    final ally = AllyPlayer(
+    final ally = EnemyPlayer(
       id: message.idPlayer,
       position: message.position!,
       direction: message.direction.toDirection(),
@@ -101,7 +98,7 @@ class _StarterState extends State<Starter> {
   }
 
   void _sendMyInvokation(Message message) {
-    final ally = AllyPlayer(
+    final ally = EnemyPlayer(
       id: message.idPlayer,
       position: message.position!,
       direction: message.direction.toDirection(),

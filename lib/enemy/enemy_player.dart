@@ -1,15 +1,15 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:lesson_flutter_bonfire_with_websocket/ally/controllers/ally_player_controller.dart';
 
 import '../abilities/slash_ability_sprite.dart';
 import '../main.dart';
 import '../player/knight_sprite.dart';
+import 'controllers/enemy_player_controller.dart';
 
-class AllyPlayer extends SimpleEnemy
-    with ObjectCollision, UseStateController<AllyPlayerController> {
+class EnemyPlayer extends SimpleEnemy
+    with ObjectCollision, UseStateController<EnemyPlayerController> {
   final String id;
 
-  AllyPlayer({
+  EnemyPlayer({
     required this.id,
     required Vector2 position,
     required Direction direction,

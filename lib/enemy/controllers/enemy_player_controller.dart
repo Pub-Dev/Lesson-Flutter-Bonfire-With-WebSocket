@@ -1,19 +1,19 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:lesson_flutter_bonfire_with_websocket/ally/ally_player.dart';
+import 'package:lesson_flutter_bonfire_with_websocket/enemy/enemy_player.dart';
 import 'package:lesson_flutter_bonfire_with_websocket/entities/message.dart';
 import 'package:lesson_flutter_bonfire_with_websocket/services/message_service.dart';
 
-class AllyPlayerController extends StateController<AllyPlayer> {
+class EnemyPlayerController extends StateController<EnemyPlayer> {
   final MessageService messageService;
   bool isIdle = true;
   late Direction direction;
 
-  AllyPlayerController({
+  EnemyPlayerController({
     required this.messageService,
   });
 
   @override
-  void update(double dt, AllyPlayer component) {
+  void update(double dt, EnemyPlayer component) {
     moveLocal();
   }
 
@@ -56,7 +56,7 @@ class AllyPlayerController extends StateController<AllyPlayer> {
   }
 
   @override
-  void onReady(AllyPlayer component) {
+  void onReady(EnemyPlayer component) {
     messageService.add(ActionMessage.move, moveServer);
     messageService.add(ActionMessage.idle, idleServer);
     messageService.add(ActionMessage.attack, attackServer);
