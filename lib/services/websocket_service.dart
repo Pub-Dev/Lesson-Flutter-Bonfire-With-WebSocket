@@ -8,7 +8,7 @@ class WebsocketService {
 
   Future initConnection() async {
     websocket = IOWebSocketChannel.connect(
-      'ws://localhost:3000/',
+      'ws://cryptic-journey-23330.herokuapp.com/',
       pingInterval: const Duration(seconds: 5),
     );
   }
