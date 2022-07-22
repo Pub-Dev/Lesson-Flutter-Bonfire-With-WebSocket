@@ -26,8 +26,8 @@ class _StarterState extends State<Starter> {
     gameController = GameController();
     messageService = BonfireInjector.instance.get();
     messageService.init();
-    messageService.add(ActionMessage.allyInvocation, _invockAllyOnline);
-    messageService.add(ActionMessage.myInvocation, _sendMyInvokation);
+    messageService.onListen(ActionMessage.allyInvocation, _invockAllyOnline);
+    messageService.onListen(ActionMessage.myInvocation, _sendMyInvokation);
     super.initState();
   }
 

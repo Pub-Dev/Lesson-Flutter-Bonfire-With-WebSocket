@@ -57,10 +57,10 @@ class EnemyPlayerController extends StateController<EnemyPlayer> {
 
   @override
   void onReady(EnemyPlayer component) {
-    messageService.add(ActionMessage.move, moveServer);
-    messageService.add(ActionMessage.idle, idleServer);
-    messageService.add(ActionMessage.attack, attackServer);
-    messageService.add(ActionMessage.disconnect, disconnectedAllyPlayer);
+    messageService.onListen(ActionMessage.move, moveServer);
+    messageService.onListen(ActionMessage.idle, idleServer);
+    messageService.onListen(ActionMessage.attack, attackServer);
+    messageService.onListen(ActionMessage.disconnect, disconnectedAllyPlayer);
     super.onReady(component);
   }
 

@@ -14,7 +14,10 @@ class MessageService {
     websocket.sendMessage(action.toJson());
   }
 
-  void add(String action, Function(Message) onUpdateAction) {
+  void onListen(
+    String action,
+    Function(Message) onUpdateAction,
+  ) {
     _onActions.add(((message) {
       if (message.action == action) {
         onUpdateAction(message);
