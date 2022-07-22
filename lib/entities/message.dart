@@ -42,7 +42,7 @@ class Message {
 
 class ActionMessage {
   static const String myInvocation = "MY_INVOCATION";
-  static const String allyInvocation = "ALLY_INVOCATION";
+  static const String enemyInvocation = "ENEMY_INVOCATION";
   static const String move = "MOVE";
   static const String idle = "IDLE";
   static const String attack = "ATTACK";

@@ -26,7 +26,7 @@ class _StarterState extends State<Starter> {
     gameController = GameController();
     messageService = BonfireInjector.instance.get();
     messageService.init();
-    messageService.onListen(ActionMessage.allyInvocation, _invockAllyOnline);
+    messageService.onListen(ActionMessage.enemyInvocation, _invockEnemyOnline);
     messageService.onListen(ActionMessage.myInvocation, _sendMyInvokation);
     super.initState();
   }
@@ -64,7 +64,7 @@ class _StarterState extends State<Starter> {
         messageService.send(
           Message(
             idPlayer: id,
-            action: ActionMessage.allyInvocation,
+            action: ActionMessage.enemyInvocation,
             direction: DirectionMessage.right,
             position: Vector2(
               gameRef.player!.position.x,
@@ -76,7 +76,7 @@ class _StarterState extends State<Starter> {
     );
   }
 
-  void _invockAllyOnline(Message message) {
+  void _invockEnemyOnline(Message message) {
     final ally = EnemyPlayer(
       id: message.idPlayer,
       position: message.position!,
@@ -98,11 +98,11 @@ class _StarterState extends State<Starter> {
   }
 
   void _sendMyInvokation(Message message) {
-    final ally = EnemyPlayer(
+    final enemy = EnemyPlayer(
       id: message.idPlayer,
       position: message.position!,
       direction: message.direction.toDirection(),
     );
-    gameController.addGameComponent(ally);
+    gameController.addGameComponent(enemy);
   }
 }

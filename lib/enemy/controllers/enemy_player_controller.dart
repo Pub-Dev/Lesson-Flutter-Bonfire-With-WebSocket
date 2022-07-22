@@ -60,7 +60,7 @@ class EnemyPlayerController extends StateController<EnemyPlayer> {
     messageService.onListen(ActionMessage.move, moveServer);
     messageService.onListen(ActionMessage.idle, idleServer);
     messageService.onListen(ActionMessage.attack, attackServer);
-    messageService.onListen(ActionMessage.disconnect, disconnectedAllyPlayer);
+    messageService.onListen(ActionMessage.disconnect, disconnectedEnemyPlayer);
     super.onReady(component);
   }
 
@@ -86,7 +86,7 @@ class EnemyPlayerController extends StateController<EnemyPlayer> {
     }
   }
 
-  void disconnectedAllyPlayer(Message message) {
+  void disconnectedEnemyPlayer(Message message) {
     if (message.idPlayer == component!.id) {
       component!.die();
     }
