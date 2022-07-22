@@ -68,6 +68,7 @@ class KnightPlayer extends SimplePlayer
           animationLeft: SlashAbilitySprite.left,
           animationUp: SlashAbilitySprite.up,
           direction: lastDirection,
+          withPush: true,
         );
       }
     }
@@ -75,7 +76,6 @@ class KnightPlayer extends SimplePlayer
 
   @override
   void die() async {
-    removeFromParent();
     final sprite = await KnightSprite.die;
     gameRef.add(
       GameDecoration.withSprite(
@@ -87,6 +87,7 @@ class KnightPlayer extends SimplePlayer
         size: Vector2.all(30),
       ),
     );
+    removeFromParent();
     super.die();
   }
 

@@ -5,7 +5,7 @@ import '../abilities/slash_ability_sprite.dart';
 import '../main.dart';
 import '../player/knight_sprite.dart';
 
-class AllyPlayer extends SimpleAlly
+class AllyPlayer extends SimpleEnemy
     with ObjectCollision, UseStateController<AllyPlayerController> {
   final String id;
 
@@ -50,13 +50,13 @@ class AllyPlayer extends SimpleAlly
         animationLeft: SlashAbilitySprite.left,
         animationUp: SlashAbilitySprite.up,
         direction: direction,
+        withPush: true,
       );
     }
   }
 
   @override
   void die() async {
-    removeFromParent();
     final sprite = await KnightSprite.die;
     gameRef.add(
       GameDecoration.withSprite(
@@ -68,6 +68,7 @@ class AllyPlayer extends SimpleAlly
         size: Vector2.all(30),
       ),
     );
+    removeFromParent();
     super.die();
   }
 }
