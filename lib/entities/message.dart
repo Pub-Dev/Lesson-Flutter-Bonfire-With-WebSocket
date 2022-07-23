@@ -41,7 +41,7 @@ class Message {
 }
 
 class ActionMessage {
-  static const String previouslyEnemiesConnected = "PREVIOUSLY_CONNECTED";
+  static const String previouslyEnemyConnected = "PREVIOUSLY_CONNECTED";
   static const String enemyInvocation = "ENEMY_INVOCATION";
   static const String move = "MOVE";
   static const String idle = "IDLE";
