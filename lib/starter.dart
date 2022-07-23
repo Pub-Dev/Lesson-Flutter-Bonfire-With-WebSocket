@@ -28,7 +28,7 @@ class _StarterState extends State<Starter> {
     messageService.init();
     messageService.onListen(ActionMessage.enemyInvocation, _addEnemy);
     messageService.onListen(
-        ActionMessage.myInvocation, _addEnemyBeforeYourLogin);
+        ActionMessage.previouslyEnemiesConnected, _addEnemyBeforeYourLogin);
     super.initState();
   }
 
@@ -84,16 +84,6 @@ class _StarterState extends State<Starter> {
       direction: message.direction.toDirection(),
     );
     gameController.addGameComponent(enemy);
-    messageService.send(
-      Message(
-        idPlayer: id,
-        action: ActionMessage.myInvocation,
-        direction: DirectionMessage.direction(
-          gameController.player!.lastDirection,
-        ),
-        position: gameController.player!.position,
-      ),
-    );
   }
 
   void _addEnemyBeforeYourLogin(Message message) {
