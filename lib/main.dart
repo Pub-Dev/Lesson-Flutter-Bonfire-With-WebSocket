@@ -16,7 +16,7 @@ void main() {
   BonfireInjector.instance.put(
     (i) => PlayerController(messageService: i.get()),
   );
-  BonfireInjector.instance.put(
+  BonfireInjector.instance.putFactory(
     (i) => EnemyPlayerController(messageService: i.get()),
   );
 
