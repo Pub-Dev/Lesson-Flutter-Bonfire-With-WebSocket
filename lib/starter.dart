@@ -97,11 +97,16 @@ class _StarterState extends State<Starter> {
   }
 
   void _addEnemyBeforeYourLogin(Message message) {
-    final enemy = EnemyPlayer(
-      id: message.idPlayer,
-      position: message.position!,
-      direction: message.direction.toDirection(),
-    );
-    gameController.addGameComponent(enemy);
+    final hasEnemy = gameController.gameRef
+        .componentsByType<EnemyPlayer>()
+        .any((element) => element.id == message.idPlayer);
+    if (!hasEnemy) {
+      final enemy = EnemyPlayer(
+        id: message.idPlayer,
+        position: message.position!,
+        direction: message.direction.toDirection(),
+      );
+      gameController.addGameComponent(enemy);
+    }
   }
 }
