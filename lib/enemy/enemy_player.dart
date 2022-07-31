@@ -1,6 +1,5 @@
 import 'package:bonfire/bonfire.dart';
 
-import '../abilities/slash_ability_sprite.dart';
 import '../main.dart';
 import '../player/knight_sprite.dart';
 import 'controllers/enemy_player_controller.dart';
@@ -37,22 +36,6 @@ class EnemyPlayer extends SimpleEnemy
         ],
       ),
     );
-  }
-
-  executeAttack(Direction direction) {
-    if (hasGameRef && !gameRef.camera.isMoving) {
-      simpleAttackMelee(
-        damage: 10,
-        size: Vector2(40, 40),
-        interval: 10,
-        animationRight: SlashAbilitySprite.right,
-        animationDown: SlashAbilitySprite.down,
-        animationLeft: SlashAbilitySprite.left,
-        animationUp: SlashAbilitySprite.up,
-        direction: direction,
-        withPush: true,
-      );
-    }
   }
 
   @override

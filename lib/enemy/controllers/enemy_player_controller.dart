@@ -3,10 +3,12 @@ import 'package:lesson_flutter_bonfire_with_websocket/enemy/enemy_player.dart';
 import 'package:lesson_flutter_bonfire_with_websocket/entities/message.dart';
 import 'package:lesson_flutter_bonfire_with_websocket/services/message_service.dart';
 
+import '../../abilities/slash_ability_sprite.dart';
+
 class EnemyPlayerController extends StateController<EnemyPlayer> {
   final MessageService messageService;
   bool isIdle = true;
-  late Direction direction;
+  Direction direction = Direction.right;
 
   EnemyPlayerController({
     required this.messageService,
@@ -66,7 +68,17 @@ class EnemyPlayerController extends StateController<EnemyPlayer> {
 
   void attackServer(Message message) {
     if (message.idPlayer == component!.id) {
-      component!.executeAttack(message.direction.toDirection());
+      component!.simpleAttackMelee(
+        damage: 10,
+        size: Vector2(40, 40),
+        interval: 10,
+        animationRight: SlashAbilitySprite.right,
+        animationDown: SlashAbilitySprite.down,
+        animationLeft: SlashAbilitySprite.left,
+        animationUp: SlashAbilitySprite.up,
+        direction: direction,
+        withPush: true,
+      );
     }
   }
 
